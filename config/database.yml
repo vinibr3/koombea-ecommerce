@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: vinicius
+  password: v1n1c1u$
+
+development:
+  <<: *default
+  database: koombea_ecommerce_development
+
+test:
+  <<: *default
+  database: koombea_ecommerce_test
+
+production:
+  <<: *default
+  database: koombea_ecommerce_production
+  username: koombea_ecommerce
+  password:
