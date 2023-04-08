@@ -7,6 +7,7 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false },
                     format: URI::MailTo::EMAIL_REGEXP,
                     length: { maximum: 255 }
+  validates :password, length: { minimum: 6, maximum: 15 }
 
   before_save :changes_email_to_downcase
 
