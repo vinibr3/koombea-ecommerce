@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :registrations, only: %i[new create]
     resources :cart_items, only: %i[index create destroy]
     resources :products, only: %i[index]
+    resources :checkouts, only: %i[new create]
     get '/home', to: 'pages#home'
   end
   root 'sessions#new'

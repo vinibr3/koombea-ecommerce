@@ -4,6 +4,7 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :cart_items
+  has_many :orders
 
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },

@@ -13,10 +13,14 @@ en:
   cart_items:
     index:
       title: Cart
+      total: Total
     create:
       success: Product added to shopping cart successfull.
     destroy:
       success: Product removed from shopping cart successfull.
+  checkouts:
+    create:
+      success: Order created successful.
   koombea: Koombea
   helpers:
     submit:
@@ -28,3 +32,5 @@ en:
       product_search: 'Iphone 14'
     links:
       products: Products
+      continue: Continue
+      finish: Finish
