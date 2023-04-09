@@ -2,3 +2,13 @@
 <div class="row">
   <%= render @cart_items %>
 </div>
+<div class="row">
+  <div class="d-flex">
+    <h3><%= t('.total') %>: <%= number_to_currency(@cart_items.sum{|i| i.product.price }) %></h3>
+  </div>
+</div>
+<div class="row">
+  <div class="d-flex">
+    <%= link_to t('helpers.links.continue'), new_checkout_path, class: 'btn btn-success' %>
+  </div>
+</div>
