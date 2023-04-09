@@ -21,6 +21,9 @@ en:
   checkouts:
     create:
       success: Order created successful.
+  orders:
+    index:
+      title: Orders
   koombea: Koombea
   helpers:
     submit:
@@ -34,3 +37,5 @@ en:
       products: Products
       continue: Continue
       finish: Finish
+      orders: Orders
+      details: Details
