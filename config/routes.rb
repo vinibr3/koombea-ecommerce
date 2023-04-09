@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :sessions, only: %i[new create destroy]
     resources :registrations, only: %i[new create]
     resources :cart_items, only: %i[index destroy]
+    resources :products, only: %i[index]
     get '/home', to: 'pages#home'
   end
   root 'sessions#new'

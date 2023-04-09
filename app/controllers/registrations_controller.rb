@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to home_path
+      redirect_to products_path
     else
       flash.now[:alert] = @user.errors.full_messages.join(', ')
       render :new, status: :unprocessable_entity

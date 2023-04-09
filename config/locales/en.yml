@@ -18,3 +18,6 @@ en:
     submit:
       exit: Logout
       remove: Remove
+      search: Search
+    placeholders:
+      product_search: 'Iphone 14'  
