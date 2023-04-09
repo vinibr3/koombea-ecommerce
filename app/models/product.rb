@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   has_many_attached :images
 
+  has_many :cart_items
+
   validates :title, presence: true,
                     length: { maximum: 255 }
   validates :description, presence: true

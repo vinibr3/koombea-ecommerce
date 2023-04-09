@@ -3,6 +3,8 @@
 class User < ApplicationRecord
   has_secure_password
 
+  has_many :cart_items
+
   validates :email, presence: true,
                     uniqueness: { case_sensitive: false },
                     format: URI::MailTo::EMAIL_REGEXP,

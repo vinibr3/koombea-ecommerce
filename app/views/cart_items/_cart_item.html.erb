@@ -1,0 +1,15 @@
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <%= image_tag url_for(cart_item.product.images.first)  %>
+    <div class="card-body">
+      <h5 class="card-title"><%= cart_item.product.title %></h5>
+      <p class="card-text"><%= cart_item.product.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item "><b><%= number_to_currency(cart_item.product.price) %></b></li>
+    </ul>
+    <div class="card-body">
+      <%= button_to t('helpers.submit.remove'), cart_item_path(cart_item), method: :delete, class: 'btn btn-warning' %>
+    </div>
+  </div>
+</div>

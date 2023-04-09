@@ -10,7 +10,11 @@ en:
     new:
       title: New Account
       submit: Create my account
+  cart_items:
+    index:
+      title: Cart
   koombea: Koombea
   helpers:
     submit:
       exit: Logout
+      remove: Remove
