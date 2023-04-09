@@ -1,0 +1,18 @@
+<div class="col">
+  <div class="card" style="width: 18rem;">
+    <%= image_tag url_for(product.images.first) if product.images.first %>
+    <div class="card-body">
+      <h5 class="card-title"><%= product.title %></h5>
+      <p class="card-text"><%= product.description %></p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b><%= number_to_currency(product.price) %></b></li>
+    </ul>
+    <div class="card-body">
+      <%= form_with model: CartItem.new(product: product) do |f| %>
+        <%= f.hidden_field :product_id %>
+        <%= f.submit t('helpers.submit.add_to_cart'), { class: 'btn btn-primary' } %>
+      <% end %>
+    </div>
+  </div>
+</div>
