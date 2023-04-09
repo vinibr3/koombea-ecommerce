@@ -13,11 +13,18 @@ en:
   cart_items:
     index:
       title: Cart
+    create:
+      success: Product added to shopping cart successfull.
+    destroy:
+      success: Product removed from shopping cart successfull.
   koombea: Koombea
   helpers:
     submit:
       exit: Logout
       remove: Remove
       search: Search
+      add_to_cart: Add to cart
     placeholders:
-      product_search: 'Iphone 14'  
+      product_search: 'Iphone 14'
+    links:
+      products: Products
