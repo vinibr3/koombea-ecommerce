@@ -18,6 +18,9 @@ gem 'bcrypt'
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'activeadmin', '~> 2.13', '>= 2.13.1'
 gem 'sassc-rails'
+gem 'kaminari', '~> 1.2', '>= 1.2.2'
+gem 'searchkick', '1.5.1'
+gem 'elasticsearch', '5.0.5'
 
 group :development, :test do
   gem 'debug', platforms: %i[ mri mingw x64_mingw ]
