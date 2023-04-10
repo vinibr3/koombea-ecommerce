@@ -1,4 +1,4 @@
-class CartItemsController < ApplicationController
+class CartItemsController < EcommerceController
   def index
     @cart_items = current_user.cart_items
                               .includes(:product)

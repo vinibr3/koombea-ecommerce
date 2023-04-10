@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CheckoutsController < ApplicationController
+class CheckoutsController < EcommerceController
   def new
     @cart_items = cart_items
   end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class OrdersController < ApplicationController
+class OrdersController < EcommerceController
   def index
     @orders = current_user.orders
                           .includes(:payment_status, items: [:product])
