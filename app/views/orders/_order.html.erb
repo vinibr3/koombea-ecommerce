@@ -4,5 +4,5 @@
   <td><%= number_to_currency(order.total) %></td>
   <td><%= order.payment_status.try(:alias) %></td>
   <td><%= order.payment_status.try(:alias) %></td>
-  <td><%= link_to t('helpers.link.details'), order_path(order) %></td>
+  <td><%= link_to t('helpers.link.details'), order_path(order), data: { 'turbo-frame': :main } %></td>
 </tr>

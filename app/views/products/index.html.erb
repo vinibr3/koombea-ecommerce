@@ -1,16 +1,19 @@
-<br>
-<div class="row">
-  <div class="col">
-    <%= form_tag products_path, method: :get, url: products_path, class: 'd-flex' do %>
-      <%= search_field_tag :term, params[:term], placeholder: t('helpers.placeholders.product_search'), class: 'form-control' %>
-      <%= submit_tag t('helpers.submit.search'), class: 'btn btn-primary' %>
-    <% end %>
+<%= turbo_frame_tag 'main' do %>
+  <%= render 'layouts/flash' %>
+  <br>
+  <div class="row">
+    <div class="col">
+      <%= form_tag products_path, method: :get, url: products_path, class: 'd-flex' do %>
+        <%= search_field_tag :term, params[:term], placeholder: t('helpers.placeholders.product_search'), class: 'form-control' %>
+        <%= submit_tag t('helpers.submit.search'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-</div>
-<br>
-<div class="row">
-  <%= render @products %>
-</div>
-<div class="row">
-  <%= paginate @products %>
-</div>
+  <br>
+  <div class="row">
+    <%= render @products %>
+  </div>
+  <div class="row">
+    <%= paginate @products %>
+  </div>
+<% end %>

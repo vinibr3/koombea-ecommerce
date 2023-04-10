@@ -1,33 +1,36 @@
-<br>
-<div class="row">
-  <div class="col">
-    <h2><b><%= t('.code') %>: <%= @order.id %></b></h2>
-    <p> <%= @order.payment_status.try(:alias) %> </p>
+<%= turbo_frame_tag 'main' do %>
+  <%= render 'layouts/flash' %>
+  <br>
+  <div class="row">
+    <div class="col">
+      <h2><b><%= t('.code') %>: <%= @order.id %></b></h2>
+      <p> <%= @order.payment_status.try(:alias) %> </p>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
-    <% @order.items.includes(:product).each do |item| %>
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <%= image_tag(url_for(item.product.images.first), size: 400) if item.product.images.first %>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= item.product.title %></h5>
-              <p class="card-text"><%= item.product.description %></p>
-              <p class="card-text"><small class="text-muted"><%= time_ago_in_words(item.created_at) %></small></p>
+  <div class="row">
+    <div class="col">
+      <% @order.items.includes(:product).each do |item| %>
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <%= image_tag(url_for(item.product.images.first), size: 400) if item.product.images.first %>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= item.product.title %></h5>
+                <p class="card-text"><%= item.product.description %></p>
+                <p class="card-text"><small class="text-muted"><%= time_ago_in_words(item.created_at) %></small></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
-<p> <%= time_ago_in_words(@order.created_at) %> </p>
-<div class="row">
-  <div class="d-flex">
-    <h3><%= t('.total') %>: <%= number_to_currency(@order.items.sum{|i| i.product.price }) %></h3>
+  <p> <%= time_ago_in_words(@order.created_at) %> </p>
+  <div class="row">
+    <div class="d-flex">
+      <h3><%= t('.total') %>: <%= number_to_currency(@order.items.sum{|i| i.product.price }) %></h3>
+    </div>
   </div>
-</div>
+<% end %>
