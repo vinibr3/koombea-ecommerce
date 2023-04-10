@@ -1,6 +1,6 @@
 # frozen_string_literal
 
-class RegistrationsController < ApplicationController
+class RegistrationsController < EcommerceController
   skip_before_action :authenticate_user!
 
   def new
