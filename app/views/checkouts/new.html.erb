@@ -1,32 +1,35 @@
-<div class="row">
-  <div class="col">
-    <table class="table table-striped">
-      <thead>
-        <th> <%= Product.human_attribute_name(:image) %></th>
-        <th> <%= Product.human_attribute_name(:title) %></th>
-        <th> <%= Product.human_attribute_name(:price) %></th>
-      </thead>
-      <tbody>
-        <% @cart_items.each do |cart_item| %>
-          <tr>
-            <td><%= image_tag(url_for(cart_item.product.images.first), size: 100) if cart_item.product.images.first %></td>
-            <td><%= cart_item.product.title %></td>
-            <td><%= number_to_currency(cart_item.product.price) %></td>
-          </tr>
-        <% end %>
-      <tbody>
-    </table>
+<%= turbo_frame_tag 'main' do %>
+  <%= render 'layouts/flash' %>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <th> <%= Product.human_attribute_name(:image) %></th>
+          <th> <%= Product.human_attribute_name(:title) %></th>
+          <th> <%= Product.human_attribute_name(:price) %></th>
+        </thead>
+        <tbody>
+          <% @cart_items.each do |cart_item| %>
+            <tr>
+              <td><%= image_tag(url_for(cart_item.product.images.first), size: 100) if cart_item.product.images.first %></td>
+              <td><%= cart_item.product.title %></td>
+              <td><%= number_to_currency(cart_item.product.price) %></td>
+            </tr>
+          <% end %>
+        <tbody>
+      </table>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="d-flex">
-    <h3><%= t('.total') %>: <%= number_to_currency(@cart_items.sum{|i| i.product.price }) %></h3>
+  <div class="row">
+    <div class="d-flex">
+      <h3><%= t('.total') %>: <%= number_to_currency(@cart_items.sum{|i| i.product.price }) %></h3>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="d-flex">
-    <%= form_with model: nil, url: checkouts_path, method: :post do |f| %>
-      <%= f.submit t('helpers.links.finish'), class: 'btn btn-primary' %>
-    <% end %>
+  <div class="row">
+    <div class="d-flex">
+      <%= form_with model: nil, url: checkouts_path, method: :post do |f| %>
+        <%= f.submit t('helpers.links.finish'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>

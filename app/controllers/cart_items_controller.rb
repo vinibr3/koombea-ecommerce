@@ -11,7 +11,7 @@ class CartItemsController < EcommerceController
     if @cart_item.save
       flash[:notice] = t('.success')
     else
-      flash.now[:alert] = @cart_item.errors.full_messages.join(', ')
+      flash[:alert] = @cart_item.errors.full_messages.join(', ')
     end
 
     redirect_to products_path
@@ -23,7 +23,7 @@ class CartItemsController < EcommerceController
     if @cart_item.update(removed_at: Date.current)
       flash[:notice] = t('.success')
     else
-      flash.now[:alert] = @cart_item.errors.full_messages.join(', ')
+      flash[:alert] = @cart_item.errors.full_messages.join(', ')
     end
 
     redirect_to cart_items_path

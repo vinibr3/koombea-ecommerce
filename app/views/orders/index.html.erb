@@ -1,26 +1,29 @@
-<div class="row">
-  <div class="col">
-    <h1> <%= t('.title') %></h1>
+<%= turbo_frame_tag 'main' do %>
+  <%= render 'layouts/flash' %>
+  <div class="row">
+    <div class="col">
+      <h1> <%= t('.title') %></h1>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col">
-    <table class="table table-striped">
-      <thead>
-        <th> <%= Product.human_attribute_name(:id) %></th>
-        <th> <%= Product.human_attribute_name(:item_quantity) %></th>
-        <th> <%= Product.human_attribute_name(:total) %></th>
-        <th> <%= Product.human_attribute_name(:payment_status) %></th>
-        <th> <%= Product.human_attribute_name(:actions) %></th>
-      </thead>
-      <tbody>
-        <%= render @orders %>
-      <tbody>
-    </table>
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <th> <%= Product.human_attribute_name(:id) %></th>
+          <th> <%= Product.human_attribute_name(:item_quantity) %></th>
+          <th> <%= Product.human_attribute_name(:total) %></th>
+          <th> <%= Product.human_attribute_name(:payment_status) %></th>
+          <th> <%= Product.human_attribute_name(:actions) %></th>
+        </thead>
+        <tbody>
+          <%= render @orders %>
+        <tbody>
+      </table>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="d-flex">
-    <%= paginate @orders %>
+  <div class="row">
+    <div class="d-flex">
+      <%= paginate @orders %>
+    </div>
   </div>
-</div>
+<% end %>
